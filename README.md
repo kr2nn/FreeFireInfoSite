@@ -1,4 +1,4 @@
-# FREE FIRE INFO API  
+# 📂 FREE FIRE INFO API  
 
 ## Supported Regions  
 ```json  
@@ -152,3 +152,15 @@ https://ffdvinh09-info.vercel.app/player-info?region=SG&uid=338277714
     }  
 }  
 ```  
+
+## Getting Started  
+
+### Clone the Repository  
+To clone the repository, run the following command:  
+```bash  
+git clone https://github.com/duyvinh09/FreeFireInfoSite.git  
+```  
+
+### Deploy via Vercel  
+You can deploy the project using the link below:  
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/duyvinh09/FreeFireInfoSite)  
