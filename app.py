@@ -13,6 +13,7 @@ from google.protobuf import json_format, message
 from google.protobuf.message import Message
 from Crypto.Cipher import AES
 import base64
+import random
 
 # === Settings ===
 MAIN_KEY = base64.b64decode('WWcmdGMlREV1aDYlWmNeOA==')
@@ -52,7 +53,15 @@ def get_account_credentials(region: str) -> str:
     elif r in {"BR", "US", "SAC", "NA"}:
         return "uid=3939493997&password=D08775EC0CCCEA77B2426EBC4CF04C097E0D58822804756C02738BF37578EE17"
     else:
-        return "uid=3939507748&password=55A6E86C5A338D133BAD02964EFB905C7C35A86440496BC210A682146DCE9F32"
+        try:
+            with open("accounts.txt", "r") as f:
+                lines = [line.strip() for line in f if line.strip()]
+                if not lines:
+                    raise ValueError("File accounts.txt trống.")
+                uid, password = random.choice(lines).split()
+                return f"uid={uid}&password={password}"
+        except Exception as e:
+            return f"ERROR: {e}"
 
 # === Token Generation ===
 async def get_access_token(account: str):
